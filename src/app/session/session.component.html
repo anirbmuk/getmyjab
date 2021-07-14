@@ -1,0 +1,38 @@
+<ul class="list-group" role="list">
+  <li
+    class="list-group-item"
+    role="listitem"
+    *ngFor="let item of data; trackBy: trackByCenterIdFn"
+  >
+    <div class="result-header">{{ item.name | uppercase }}</div>
+    <div class="result-sub-header">
+      <span class="bold-font">Pin: </span
+      ><span data-cy="pincode">{{ item.pincode }}</span> |
+      <span class="bold-font">Fee: </span>
+      <span
+        data-cy="feetype"
+        [ngClass]="{
+          'success-color': item.fee_type === 'Free',
+          'error-color': item.fee_type === 'Paid'
+        }"
+        >{{ item.fee_type }}</span
+      >
+    </div>
+    <div
+      matLine
+      *ngFor="let session of item.filteredsessions; trackBy: trackBySessionIdFn"
+      class="result-sub-header"
+    >
+      <span class="bold-font">Date: </span
+      ><span data-cy="date">{{ session.date + ' | ' }}</span>
+      <span class="bold-font">Slots: </span
+      ><span data-cy="dose">{{ session[mapper] + ' | ' }}</span>
+      <span class="bold-font" data-cy="vaccine">{{
+        (session.vaccine || 'Unknown') + ' '
+      }}</span>
+      <span *ngIf="!!session.fee" data-cy="fee"
+        >({{ session.fee | currency: 'INR' }})</span
+      >
+    </div>
+  </li>
+</ul>

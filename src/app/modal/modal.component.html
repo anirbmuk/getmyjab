@@ -1,0 +1,70 @@
+<div id="dose-modal" data-cy="doseModal">
+  <h4 class="dialog-header" mat-dialog-title>
+    When did you get your first dose?
+  </h4>
+  <hr />
+  <mat-dialog-content>
+    <form [formGroup]="firstdateForm">
+      <mat-form-field>
+        <mat-label>Date</mat-label>
+        <input
+          matInput
+          [matDatepicker]="FirstDoseDate"
+          autocomplete="off"
+          required
+          formControlName="firstdate"
+          [max]="maxDate"
+          data-cy="inputDoseDate"
+        />
+        <mat-datepicker-toggle
+          matSuffix
+          [for]="FirstDoseDate"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #FirstDoseDate></mat-datepicker>
+        <mat-error *ngIf="firstdateForm.get('firstdate').hasError('required')"
+          >Date is a required field</mat-error
+        >
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Vaccine</mat-label>
+        <mat-select
+          formControlName="vaccine"
+          data-cy="inputDoseVaccine"
+          required
+        >
+          <mat-option *ngFor="let option of options" [value]="option.key"
+            >{{ option.value }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="firstdateForm.get('vaccine').hasError('required')"
+          >Vaccine is a required field</mat-error
+        >
+      </mat-form-field>
+    </form>
+  </mat-dialog-content>
+  <hr />
+  <div class="right-align">
+    <button
+      mat-stroked-button
+      color="primary"
+      (click)="onDialogAction()"
+      class="left-margin"
+      [disabled]="firstdateForm.invalid"
+      type="submit"
+      data-cy="submitModal"
+    >
+      OK
+    </button>
+    <button
+      mat-stroked-button
+      mat-dialog-close
+      color="warn"
+      (click)="closeModal()"
+      class="left-margin"
+      type="reset"
+      data-cy="cancelModal"
+    >
+      Cancel
+    </button>
+  </div>
+</div>

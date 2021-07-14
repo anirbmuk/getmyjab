@@ -1,0 +1,174 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: 'Open Sans', sans-serif; color: #121212; }
+
+html, body,
+.mat-tab,
+.mat-tab-group,
+.mat-tab-label,
+.mat-tab-label-content,
+.mat-radio-button,
+.mat-radio-container,
+.mat-radio-label-content,
+.mat-toolbar,
+.mat-button-toggle,
+.mat-dialog,
+.mat-dialog-content,
+.mat-form-field,
+.mat-label,
+.mat-dialog-title,
+.mat-input-element,
+.mat-calendar,
+.mat-button,
+.mat-stroked-button,
+.mat-calendar-content,
+.mat-select,
+.mat-select-value-text,
+.mat-option-text,
+.mat-calendar-body-selected,
+.mat-table,
+.mat-cell,
+.mat-row,
+.mat-paginator,
+.mat-header-row,
+.mat-header-cell {
+  font-family: 'Open Sans', sans-serif !important;
+  text-rendering: optimizeLegibility;
+}
+
+.mat-button-toggle-label-content {
+  font-size: 13px;
+}
+
+.mat-button-toggle-checked {
+  font-weight: 600 !important;
+}
+
+.mat-form-field-appearance-legacy .mat-form-field-underline,
+.mat-form-field-appearance-legacy .mat-form-field-ripple,
+.mat-form-field-appearance-legacy.mat-focused .mat-form-field-underline,
+.mat-form-field-appearance-legacy.mat-focused .mat-form-field-ripple {
+  background-color: #121212;
+}
+
+.default-color {
+  color: #121212 !important;
+}
+
+.default-margin {
+  margin-top: 10px;
+}
+
+.left-margin {
+  margin-left: 10px !important;
+}
+
+.center-align {
+  text-align: center !important;
+}
+
+.right-align {
+  text-align: right !important;
+}
+
+.justify-align {
+  text-align: justify !important;
+}
+
+.mat-radio-label-content {
+  font-weight: normal;
+  padding-left: 4px !important;
+  font-size: 13px;
+}
+
+.mat-radio-button.mat-primary.mat-radio-checked .mat-radio-outer-circle {
+  border-color: #121212;
+}
+
+.mat-radio-button.mat-primary .mat-radio-inner-circle, .mat-radio-button.mat-primary .mat-radio-ripple .mat-ripple-element:not(.mat-radio-persistent-ripple), .mat-radio-button.mat-primary.mat-radio-checked .mat-radio-persistent-ripple, .mat-radio-button.mat-primary:active .mat-radio-persistent-ripple {
+  background-color: #121212;
+}
+
+.mat-form-field {
+  display: block !important;
+}
+
+h4 {
+  font-size: 14px;
+  font-weight: 700 !important;
+}
+
+.mat-button-toggle-appearance-standard .mat-button-toggle-label-content {
+  padding: 0 9px !important;
+}
+
+.bold-font {
+  font-weight: 700;
+}
+
+.mat-tab-group.mat-primary .mat-ink-bar {
+  background-color: #121212;
+}
+
+.mat-tab-label, .mat-tab-link {
+  font-size: 15px;
+}
+
+.success-color {
+  color: #00612c;
+  font-weight: 600;
+}
+
+.error-color {
+  color: #ff0033;
+  font-weight: 600;
+}
+
+.boiler-label {
+  color: rgba(18, 18, 18, 0.75);
+}
+
+.mat-input-element {
+  caret-color: #121212;
+}
+
+.mat-primary .mat-option.mat-selected:not(.mat-option-disabled) {
+  color: #121212;
+}
+
+.mat-button.mat-primary, .mat-icon-button.mat-primary, .mat-stroked-button.mat-primary {
+  color: #121212;
+}
+
+.mat-paginator {
+  display: inline !important;
+}
+
+.mat-header-cell {
+  color: #121212BB;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.bold-font {
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+@media only screen and (max-width: 767px) {
+  .hide-on-mobile {
+    display: none;
+  }
+}
+
+label > mat-label {
+  color: #121212CC;
+  font-size: 0.9rem;
+}
+
+.mat-paginator-range-label {
+  margin: 0 10px !important;
+  color: #121212CC;
+  font-size: 0.82rem;
+}

@@ -1,0 +1,20 @@
+:host {
+  position: fixed;
+  float: right;
+  cursor: pointer;
+  right: 14px;
+  bottom: 14px;
+  z-index: 100;
+  opacity: 0.7;
+}
+
+:host:hover {
+  opacity: 1;
+}
+
+.mat-flat-button.mat-primary,
+.mat-raised-button.mat-primary,
+.mat-fab.mat-primary,
+.mat-mini-fab.mat-primary {
+  background-color: rgba(18, 18, 18, 0.8);
+}

@@ -1,0 +1,15 @@
+{
+  "baseUrl": "http://localhost:4200",
+  "viewportWidth": 1024,
+  "viewportHeight": 800,
+  "video": false,
+  "screenshotOnRunFailure": false,
+  "testFiles": [
+    "./test.spec.js",
+    "./action.spec.js",
+    "./route.spec.js",
+    "./aboutme.spec.js",
+    "./covid.spec.js",
+    "./session.spec.js"
+  ]
+}

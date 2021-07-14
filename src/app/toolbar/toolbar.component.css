@@ -1,0 +1,51 @@
+.radio-container {
+  margin: 0.6rem 0;
+  text-align: left;
+}
+
+@media only screen and (max-width: 767px) {
+  .radio-container {
+    margin: 1rem 0;
+    text-align: center;
+  }
+}
+
+.mat-radio-button ~ .mat-radio-button {
+  padding-left: 12px;
+}
+
+.toolbar-container {
+  margin-bottom: 5px;
+}
+
+.button-fee-container {
+  margin-left: 20px;
+}
+
+@media only screen and (max-width: 767px) {
+  .toolbar-container {
+    justify-content: space-between;
+  }
+
+  .button-fee-container {
+    margin: 0;
+  }
+}
+
+.toolbar-container,
+.toolbar-container > * {
+  display: flex;
+}
+
+.message-container {
+  margin-top: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  margin-left: -3px;
+}
+
+@media only screen and (max-width: 767px) {
+  .message-container {
+    margin-left: 0;
+  }
+}

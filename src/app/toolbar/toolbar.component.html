@@ -1,0 +1,42 @@
+<div class="radio-container">
+  <mat-radio-group
+    aria-labelledby="dose-radio-group-label"
+    color="primary"
+    [(ngModel)]="dose"
+    (change)="onDoseChange($event)"
+  >
+    <mat-radio-button value="first"> First dose </mat-radio-button>
+    <mat-radio-button value="second"> Second dose </mat-radio-button>
+  </mat-radio-group>
+  <div class="message-container">
+    <ng-content></ng-content>
+  </div>
+</div>
+<div class="toolbar-container">
+  <div class="button-age-container">
+    <mat-button-toggle-group
+      [(ngModel)]="localMinimumAge"
+      (change)="onMinimumAgeChange($event)"
+    >
+      <mat-button-toggle value="18" aria-label="Minimum age is 18">
+        Age: 18+
+      </mat-button-toggle>
+      <mat-button-toggle value="45" aria-label="Minimum age is 45">
+        Age: 45+
+      </mat-button-toggle>
+    </mat-button-toggle-group>
+  </div>
+  <div class="button-fee-container">
+    <mat-button-toggle-group [(ngModel)]="fee" (change)="onFeeChange($event)">
+      <mat-button-toggle value="All" aria-label="Show all fee types">
+        All
+      </mat-button-toggle>
+      <mat-button-toggle value="Free" aria-label="Show only free types">
+        Free
+      </mat-button-toggle>
+      <mat-button-toggle value="Paid" aria-label="Show only paid types">
+        Paid
+      </mat-button-toggle>
+    </mat-button-toggle-group>
+  </div>
+</div>

@@ -1,0 +1,57 @@
+h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: rgba(18, 18, 18, 0.85);
+  border-bottom: 1px solid rgba(18, 18, 18, 0.75);
+}
+
+h2 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: rgba(18, 18, 18, 0.85);
+  border-bottom: 1px solid rgba(18, 18, 18, 0.75);
+  padding-top: 10px;
+}
+
+.intro-block,
+.redirect-block {
+  text-align: justify;
+}
+
+.about-block {
+  margin: 25px 0;
+}
+
+.stack-block {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.about-block > p {
+  margin-top: -7px;
+}
+
+.disclaimer-block {
+  font-size: 14px;
+  font-style: italic;
+  text-align: justify;
+  padding-bottom: 20px;
+}
+
+.disclaimer-block > p ~ p {
+  margin-top: -10px;
+}
+
+a {
+  color: #121212;
+  text-decoration: none;
+  border-bottom: 1px solid #121212;
+}
+
+a:hover {
+  cursor: pointer;
+}
+
+img ~ img {
+  margin: 0 15px;
+}

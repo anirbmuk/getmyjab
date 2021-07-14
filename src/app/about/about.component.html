@@ -1,0 +1,98 @@
+<div class="default-margin">
+  <h1>The App: GetMyJab</h1>
+  <p class="intro-block">
+    {{ text }}
+  </p>
+  <h2>The Developer: Anirban Mukherjee</h2>
+  <div class="about-block">
+    <p>
+      <a
+        target="_blank"
+        href="https://twitter.com/anirbmuk"
+        aria-label="Twitter"
+        (click)="clickExternalLink('twitter')"
+        ><img
+          height="23"
+          src="/assets/images/twitter.svg"
+          alt="twitter logo @anirbmuk"
+      /></a>
+    </p>
+    <p>
+      <a
+        target="_blank"
+        href="https://www.linkedin.com/in/anirbmuk"
+        aria-label="LinkedIn"
+        (click)="clickExternalLink('linkedin')"
+        ><img
+          height="23"
+          src="/assets/images/linkedin.svg"
+          alt="linkedin logo @anirbmuk"
+      /></a>
+    </p>
+    <p>
+      <a
+        target="_blank"
+        href="https://github.com/anirbmuk/getmyjab"
+        aria-label="GitHub"
+        (click)="clickExternalLink('github')"
+        ><img
+          height="23"
+          src="/assets/images/github.svg"
+          alt="github logo @anirbmuk"
+      /></a>
+    </p>
+    <p>
+      <a
+        target="_blank"
+        href="https://theangularpath.anirbanblogs.com"
+        aria-label="Blogger"
+        (click)="clickExternalLink('blogger')"
+        ><img
+          height="23"
+          src="/assets/images/blogger.svg"
+          alt="blogger logo @anirbanblogs"
+      /></a>
+    </p>
+  </div>
+  <h2>The Tech Stack</h2>
+  <div class="stack-block">
+    <p>
+      <img height="50" src="/assets/images/angular.svg" alt="angular logo" />
+      <img
+        height="50"
+        src="/assets/images/gcp.svg"
+        alt="google cloud platform logo"
+      />
+    </p>
+  </div>
+  <h2>That's all folks!</h2>
+  <div class="redirect-block">
+    <p>
+      Do visit the <a data-cy="slotsUrl" routerLink="/">home page</a> page for
+      more information on current vaccination slots, or the
+      <a data-cy="covidUrl" routerLink="/covid">status</a> page for current
+      COVID-19 status in India. Thank you!
+    </p>
+  </div>
+  <h2>*** Disclaimer ***</h2>
+  <div class="disclaimer-block">
+    <p>
+      While a lot of thought and research has gone into building this interface,
+      the logic behind displaying the actual availability of slots is not
+      something under my control (and it keeps on changing as per Govt's
+      decisions).
+    </p>
+    <p>
+      Although I strive to keep this software in sync with the latest updates,
+      it is always recommended to refer to the Indian Govt's
+      <a
+        target="_blank"
+        href="https://www.cowin.gov.in/home"
+        aria-label="CoWin"
+        (click)="clickExternalLink('cowin')"
+        >CoWin website</a
+      >
+      for real-time data.
+    </p>
+  </div>
+</div>

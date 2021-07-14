@@ -1,0 +1,96 @@
+{
+  "withoutFeesBody": {
+    "centers": [
+      {
+        "center_id": "001",
+        "name": "Session Without Fees",
+        "pincode": "123456",
+        "fee_type": "Free",
+        "sessions": [
+          {
+            "session_id": "000001",
+            "date": "07-06-2021",
+            "available_capacity": 2,
+            "available_capacity_dose1": 1,
+            "available_capacity_dose2": 1,
+            "min_age_limit": 18,
+            "vaccine": "COVISHIELD"
+          }
+        ]
+      }
+    ]
+  },
+  "withFeesBody": {
+    "centers": [
+      {
+        "center_id": "002",
+        "name": "Session With Fees",
+        "pincode": "654321",
+        "fee_type": "Paid",
+        "sessions": [
+          {
+            "session_id": "000002",
+            "date": "14-06-2021",
+            "available_capacity": 2,
+            "available_capacity_dose1": 1,
+            "available_capacity_dose2": 1,
+            "min_age_limit": 18,
+            "vaccine": "COVISHIELD"
+          },
+          {
+            "session_id": "000003",
+            "date": "14-06-2021",
+            "available_capacity": 2,
+            "available_capacity_dose1": 1,
+            "available_capacity_dose2": 1,
+            "min_age_limit": 18,
+            "vaccine": "COVAXIN"
+          }
+        ],
+        "vaccine_fees": [
+          {
+            "vaccine": "COVISHIELD",
+            "fee": 850
+          },
+          {
+            "vaccine": "COVAXIN",
+            "fee": 1050
+          }
+        ]
+      }
+    ]
+  },
+  "seconddose": {
+    "centers": [
+      {
+        "center_id": "003",
+        "name": "Second dose",
+        "pincode": "987654",
+        "fee_type": "Free",
+        "sessions": [
+          {
+            "session_id": "000004",
+            "date": "14-06-2021",
+            "available_capacity": 2,
+            "available_capacity_dose1": 1,
+            "available_capacity_dose2": 1,
+            "min_age_limit": 18,
+            "vaccine": "COVISHIELD"
+          },
+          {
+            "session_id": "000005",
+            "date": "14-06-2021",
+            "available_capacity": 2,
+            "available_capacity_dose1": 1,
+            "available_capacity_dose2": 2,
+            "min_age_limit": 18,
+            "vaccine": "COVAXIN"
+          }
+        ]
+      }
+    ]
+  },
+  "appUrl": "http://localhost:4200/",
+  "baseUrl": "https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByDistrict?district_id=294&date=",
+  "covid19Url": "https://api.covid19india.org/data.json"
+}

@@ -1,0 +1,33 @@
+h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: rgba(18, 18, 18, 0.75);
+  text-align: center;
+  padding: 10px 0 5px 0;
+}
+
+.table-container {
+  width: 100%;
+}
+
+.covid-container {
+  margin: 10px;
+}
+
+th.mat-header-cell:first-of-type,
+td.mat-cell:first-of-type,
+td.mat-footer-cell:first-of-type {
+  padding-left: 0;
+  width: 25%;
+}
+
+@media only screen and (max-width: 767px) {
+  th.mat-header-cell:first-of-type,
+  td.mat-cell:first-of-type,
+  td.mat-footer-cell:first-of-type {
+    width: 65%;
+  }
+  h1 {
+    font-size: 1rem;
+  }
+}
