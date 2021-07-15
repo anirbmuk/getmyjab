@@ -36,8 +36,8 @@ export const environment = {
     measurementId: "G-Y7TZW19QEH"
   },
   google: {
-    verified: false,
-    id: null
+    verified: true,
+    id: 'W2ZbsaQgL_QYRXPjJcxtVWXVY5cg6ZbVnibWMOngoj4'
   },
   options: [
     { key: 'COVISHIELD', value: 'Covishield' },
