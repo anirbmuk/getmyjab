@@ -26,11 +26,7 @@ describe('Test about me', function () {
       cy.get(elem)
         .eq(2)
         .children('a')
-        .should(
-          'have.attr',
-          'href',
-          'https://github.com/anirbmuk/getmyjab'
-        );
+        .should('have.attr', 'href', 'https://github.com/anirbmuk/getmyjab');
       cy.get(elem)
         .eq(3)
         .children('a')

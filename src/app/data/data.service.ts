@@ -317,11 +317,11 @@ export class DataService {
         `${environment.calendarByDistrictRoot}?district_id=${districtId}&date=${weekNum}`
       )
       .pipe(
-        withLatestFrom(this.minimumAge$, this.dose$, this.vaccine$, this.fee$),
-        map(([data, minimumAge, dose, vaccine, fee]) => {
-          const mappedData: IData[] = data.centers;
+        map(data => data.centers),
+        withLatestFrom(this.minimumAge$, this.fee$, this.dose$, this.vaccine$),
+        map(([data, minimumAge, fee, dose, vaccine]) => {
           const fieldMapper = environment.mapper[dose];
-          return mappedData.filter((each: IData) => {
+          return data.filter((each: IData) => {
             const isValid =
               (fee === 'All' ? true : each.fee_type === fee) &&
               each?.sessions?.some(

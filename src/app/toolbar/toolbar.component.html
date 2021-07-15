@@ -28,14 +28,14 @@
   </div>
   <div class="button-fee-container">
     <mat-button-toggle-group [(ngModel)]="fee" (change)="onFeeChange($event)">
-      <mat-button-toggle value="All" aria-label="Show all fee types">
-        All
-      </mat-button-toggle>
       <mat-button-toggle value="Free" aria-label="Show only free types">
         Free
       </mat-button-toggle>
       <mat-button-toggle value="Paid" aria-label="Show only paid types">
         Paid
+      </mat-button-toggle>
+      <mat-button-toggle value="All" aria-label="Show all fee types">
+        All
       </mat-button-toggle>
     </mat-button-toggle-group>
   </div>

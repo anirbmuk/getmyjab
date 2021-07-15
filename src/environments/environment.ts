@@ -19,7 +19,7 @@ export const environment = {
   CHENNAI: 571,
   minimumCapacity: 0,
   dose: 'first',
-  fee: 'All',
+  fee: 'Free',
   mapper: {
     first: 'available_capacity_dose1',
     second: 'available_capacity_dose2'
