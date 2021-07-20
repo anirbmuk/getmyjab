@@ -24,8 +24,8 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
-Cypress.Commands.add('getSession', () => {
-  cy.get('app-session').first();
+Cypress.Commands.add('getNthSession', index => {
+  cy.get('app-session').eq(index);
 });
 
 Cypress.Commands.add('getStringFromDate', date => {

@@ -30,13 +30,13 @@ describe('Test application UI', function () {
     ).should('contain.text', 'Age: 45+');
     cy.get(
       '#mat-button-toggle-4-button > .mat-button-toggle-label-content'
-    ).should('contain.text', 'All');
-    cy.get(
-      '#mat-button-toggle-5-button > .mat-button-toggle-label-content'
     ).should('contain.text', 'Free');
     cy.get(
-      '#mat-button-toggle-6-button > .mat-button-toggle-label-content'
+      '#mat-button-toggle-5-button > .mat-button-toggle-label-content'
     ).should('contain.text', 'Paid');
+    cy.get(
+      '#mat-button-toggle-6-button > .mat-button-toggle-label-content'
+    ).should('contain.text', 'All');
   });
 
   it('should have 3 tabs', function () {

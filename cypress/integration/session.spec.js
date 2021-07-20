@@ -8,52 +8,170 @@ describe('Test vaccination sessions', function () {
     cy.getStringFromDate(new Date()).then(function (date) {
       cy.intercept('GET', `${data.baseUrl}${date}`, {
         body: data.withoutFeesBody
-      });
+      }).as('dataWithoutFees');
       cy.visit('/');
-      cy.getSession()
+      cy.getNthSession(0)
         .get('.result-header')
         .first()
         .should('contain.text', 'SESSION WITHOUT FEES');
-      cy.getSession().get('[data-cy=pincode]').should('contain.text', '123456');
-      cy.getSession().get('[data-cy=feetype]').should('contain.text', 'Free');
-      cy.getSession().get('[data-cy=dose]').should('contain.text', '1');
-      cy.getSession()
+      cy.getNthSession(0)
+        .get('[data-cy=pincode]')
+        .should('contain.text', '123456');
+      cy.getNthSession(0)
+        .get('[data-cy=feetype]')
+        .should('contain.text', 'Free');
+      cy.getNthSession(0).get('[data-cy=dose]').should('contain.text', '1');
+      cy.getNthSession(0)
         .get('[data-cy=date]')
         .eq(0)
         .should('contain.text', '07-06-2021');
-      cy.getSession().find('[data-cy=fee]').should('not.exist');
+      cy.getNthSession(0).find('[data-cy=fee]').should('not.exist');
     });
   });
   it('correctly display the sessions with fees', function () {
     cy.getStringFromDate(new Date()).then(function (date) {
       cy.intercept('GET', `${data.baseUrl}${date}`, {
         body: []
-      });
+      }).as('dataWithoutFees');
     });
     cy.addDays(new Date(), 7).then(function (date) {
       cy.intercept('GET', `${data.baseUrl}${date}`, {
         body: data.withFeesBody
-      });
+      }).as('dataWithFees');
       cy.visit('/');
-      cy.getSession()
+      cy.get('#mat-button-toggle-5-button').click();
+      cy.getNthSession(0)
         .get('.result-header')
         .first()
         .should('contain.text', 'SESSION WITH FEES');
       cy.contains('Fee: Paid');
-      cy.getSession().get('[data-cy=pincode]').should('contain.text', '654321');
-      cy.getSession().get('[data-cy=feetype]').should('contain.text', 'Paid');
-      cy.getSession().get('[data-cy=dose]').should('contain.text', '1');
-      cy.getSession()
+      cy.getNthSession(0)
+        .get('[data-cy=pincode]')
+        .should('contain.text', '654321');
+      cy.getNthSession(0)
+        .get('[data-cy=feetype]')
+        .should('contain.text', 'Paid');
+      cy.getNthSession(0).get('[data-cy=dose]').should('contain.text', '1');
+      cy.getNthSession(0)
         .get('[data-cy=date]')
         .eq(0)
         .should('contain.text', '14-06-2021');
-      cy.getSession()
+      cy.getNthSession(0)
         .get('[data-cy=date]')
         .eq(1)
         .should('contain.text', '14-06-2021');
-      cy.getSession().get('[data-cy=fee]').eq(0).should('contain.text', '850');
-      cy.getSession()
+      cy.getNthSession(0)
         .get('[data-cy=fee]')
+        .eq(0)
+        .should('contain.text', '850');
+      cy.getNthSession(0)
+        .get('[data-cy=fee]')
+        .eq(1)
+        .should('contain.text', '1,050');
+    });
+  });
+  it('correctly toggle the fees filters', function () {
+    cy.getStringFromDate(new Date()).then(function (date) {
+      cy.intercept('GET', `${data.baseUrl}${date}`, {
+        body: data.withoutFeesBody
+      }).as('dataWithoutFees');
+    });
+    cy.addDays(new Date(), 7).then(function (date) {
+      cy.intercept('GET', `${data.baseUrl}${date}`, {
+        body: data.withFeesBody
+      }).as('dataWithFees');
+      cy.visit('/');
+      cy.log('Testing with fee_type Free');
+      cy.getNthSession(0)
+        .find('.result-header')
+        .first()
+        .should('contain.text', 'SESSION WITHOUT FEES');
+      cy.getNthSession(0)
+        .find('[data-cy=pincode]')
+        .should('contain.text', '123456');
+      cy.getNthSession(0)
+        .find('[data-cy=feetype]')
+        .should('contain.text', 'Free');
+      cy.getNthSession(0).find('[data-cy=dose]').should('contain.text', '1');
+      cy.getNthSession(0)
+        .find('[data-cy=date]')
+        .eq(0)
+        .should('contain.text', '07-06-2021');
+      cy.getNthSession(0).find('[data-cy=fee]').should('not.exist');
+
+      cy.log('Testing with fee_type Paid');
+      cy.get('#mat-button-toggle-5-button').click();
+      cy.getNthSession(0)
+        .find('.result-header')
+        .first()
+        .should('contain.text', 'SESSION WITH FEES');
+      cy.getNthSession(0)
+        .find('[data-cy=pincode]')
+        .should('contain.text', '654321');
+      cy.getNthSession(0)
+        .find('[data-cy=feetype]')
+        .should('contain.text', 'Paid');
+      cy.getNthSession(0).find('[data-cy=dose]').should('contain.text', '1');
+      cy.getNthSession(0)
+        .find('[data-cy=date]')
+        .eq(0)
+        .should('contain.text', '14-06-2021');
+      cy.getNthSession(0)
+        .find('[data-cy=date]')
+        .eq(1)
+        .should('contain.text', '14-06-2021');
+      cy.getNthSession(0)
+        .find('[data-cy=fee]')
+        .eq(0)
+        .should('contain.text', '850');
+      cy.getNthSession(0)
+        .find('[data-cy=fee]')
+        .eq(1)
+        .should('contain.text', '1,050');
+
+      cy.log('Testing with fee_type All');
+      cy.get('#mat-button-toggle-6-button').click();
+      cy.getNthSession(0)
+        .find('.result-header')
+        .first()
+        .should('contain.text', 'SESSION WITHOUT FEES');
+      cy.getNthSession(0)
+        .find('[data-cy=pincode]')
+        .should('contain.text', '123456');
+      cy.getNthSession(0)
+        .find('[data-cy=feetype]')
+        .should('contain.text', 'Free');
+      cy.getNthSession(0).find('[data-cy=dose]').should('contain.text', '1');
+      cy.getNthSession(0)
+        .find('[data-cy=date]')
+        .eq(0)
+        .should('contain.text', '07-06-2021');
+      cy.getNthSession(0).find('[data-cy=fee]').should('not.exist');
+      cy.getNthSession(1)
+        .find('.result-header')
+        .first()
+        .should('contain.text', 'SESSION WITH FEES');
+      cy.getNthSession(1)
+        .find('[data-cy=pincode]')
+        .should('contain.text', '654321');
+      cy.getNthSession(1)
+        .find('[data-cy=feetype]')
+        .should('contain.text', 'Paid');
+      cy.getNthSession(1).find('[data-cy=dose]').should('contain.text', '1');
+      cy.getNthSession(1)
+        .find('[data-cy=date]')
+        .eq(0)
+        .should('contain.text', '14-06-2021');
+      cy.getNthSession(1)
+        .find('[data-cy=date]')
+        .eq(1)
+        .should('contain.text', '14-06-2021');
+      cy.getNthSession(1)
+        .find('[data-cy=fee]')
+        .eq(0)
+        .should('contain.text', '850');
+      cy.getNthSession(1)
+        .find('[data-cy=fee]')
         .eq(1)
         .should('contain.text', '1,050');
     });
@@ -74,21 +192,25 @@ describe('Test second dose', function () {
       cy.get('mat-option').eq(0).click();
       cy.get('[data-cy=submitModal]').should('be.enabled');
       cy.get('[data-cy=submitModal]').click();
-      cy.getSession()
-        .get('.result-header')
+      cy.getNthSession(0)
+        .find('.result-header')
         .first()
         .should('have.text', 'SECOND DOSE');
-      cy.getSession().get('[data-cy=pincode]').should('contain.text', '987654');
-      cy.getSession().get('[data-cy=feetype]').should('contain.text', 'Free');
-      cy.getSession().get('[data-cy=dose]').should('contain.text', '1');
-      cy.getSession()
-        .get('[data-cy=vaccine]')
+      cy.getNthSession(0)
+        .find('[data-cy=pincode]')
+        .should('contain.text', '987654');
+      cy.getNthSession(0)
+        .find('[data-cy=feetype]')
+        .should('contain.text', 'Free');
+      cy.getNthSession(0).find('[data-cy=dose]').should('contain.text', '1');
+      cy.getNthSession(0)
+        .find('[data-cy=vaccine]')
         .should('contain.text', 'COVISHIELD');
-      cy.getSession()
-        .get('[data-cy=date]')
+      cy.getNthSession(0)
+        .find('[data-cy=date]')
         .eq(0)
         .should('contain.text', '14-06-2021');
-      cy.getSession().find('[data-cy=fee]').should('not.exist');
+      cy.getNthSession(0).find('[data-cy=fee]').should('not.exist');
 
       cy.wait(500);
 
@@ -98,21 +220,25 @@ describe('Test second dose', function () {
       cy.get('mat-option').eq(1).click();
       cy.get('[data-cy=submitModal]').should('be.enabled');
       cy.get('[data-cy=submitModal]').click();
-      cy.getSession()
-        .get('.result-header')
+      cy.getNthSession(0)
+        .find('.result-header')
         .first()
         .should('have.text', 'SECOND DOSE');
-      cy.getSession().get('[data-cy=pincode]').should('contain.text', '987654');
-      cy.getSession().get('[data-cy=feetype]').should('contain.text', 'Free');
-      cy.getSession().get('[data-cy=dose]').should('contain.text', '2');
-      cy.getSession()
-        .get('[data-cy=vaccine]')
+      cy.getNthSession(0)
+        .find('[data-cy=pincode]')
+        .should('contain.text', '987654');
+      cy.getNthSession(0)
+        .find('[data-cy=feetype]')
+        .should('contain.text', 'Free');
+      cy.getNthSession(0).find('[data-cy=dose]').should('contain.text', '2');
+      cy.getNthSession(0)
+        .find('[data-cy=vaccine]')
         .should('contain.text', 'COVAXIN');
-      cy.getSession()
-        .get('[data-cy=date]')
+      cy.getNthSession(0)
+        .find('[data-cy=date]')
         .eq(0)
         .should('contain.text', '14-06-2021');
-      cy.getSession().find('[data-cy=fee]').should('not.exist');
+      cy.getNthSession(0).find('[data-cy=fee]').should('not.exist');
     });
   });
 });
