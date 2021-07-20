@@ -1,11 +1,11 @@
 .radio-container {
-  margin: 0.6rem 0;
+  margin: 15px 0;
   text-align: left;
 }
 
 @media only screen and (max-width: 767px) {
   .radio-container {
-    margin: 1rem 0;
+    margin: 20px 0;
     text-align: center;
   }
 }

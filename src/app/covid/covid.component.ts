@@ -32,7 +32,7 @@ export class CovidComponent implements OnInit {
     'recovered',
     'deaths'
   ];
-  readonly pageSize = 8;
+  readonly pageSize = 10;
   readonly pageSizeOptions = [
     this.pageSize * 1,
     this.pageSize * 2,

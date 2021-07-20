@@ -1,9 +1,14 @@
+a {
+  text-decoration: none;
+  font-weight: 400;
+}
+
 .getmyjab-header {
   justify-content: space-between;
 }
 
 .getmyjab-logo {
-  color: #121212;
+  color: rgba(18, 18, 18, 0.9);
   background-color: #f5c518;
   padding: 1px 10px;
   border-radius: 5px;
@@ -11,6 +16,11 @@
   cursor: pointer;
   outline: none;
   text-align: center;
+}
+
+.getmyjab-logo:hover {
+  color: rgba(18, 18, 18);
+  background-color: #f8cd32;
 }
 
 .mat-toolbar.mat-primary {

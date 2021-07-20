@@ -1,7 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: 'Open Sans', sans-serif; color: #121212; }
+html {
+  background: #F6F7F9;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  font-weight: 400;
+  color: #121212;
+}
 
 html, body,
 .mat-tab,
@@ -32,8 +38,9 @@ html, body,
 .mat-row,
 .mat-paginator,
 .mat-header-row,
-.mat-header-cell {
-  font-family: 'Open Sans', sans-serif !important;
+.mat-header-cell,
+.mat-tooltip {
+  font-family: 'Noto Sans SC', sans-serif !important;
   text-rendering: optimizeLegibility;
 }
 
@@ -92,6 +99,7 @@ html, body,
 
 .mat-form-field {
   display: block !important;
+  line-height: 1.5;
 }
 
 h4 {
@@ -126,7 +134,7 @@ h4 {
 }
 
 .boiler-label {
-  color: rgba(18, 18, 18, 0.75);
+  color: rgba(18, 18, 18, 0.9);
 }
 
 .mat-input-element {
@@ -171,4 +179,8 @@ label > mat-label {
   margin: 0 10px !important;
   color: #121212CC;
   font-size: 0.82rem;
+}
+
+.mat-selected {
+  font-weight: 500;
 }
