@@ -2,8 +2,8 @@ runtime: nodejs14
 
 handlers:
 - url: /sitemap.xml
-  static_files: sitemap_index.xml
-  upload: sitemap_index.xml
+  static_files: sitemap.xml
+  upload: sitemap.xml
 - url: /.*
   script: auto
   secure: always
