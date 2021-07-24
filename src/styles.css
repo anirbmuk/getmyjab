@@ -1,7 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 
 html {
-  background: #F6F7F9;
+  background: #f6f7f9;
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -9,7 +9,8 @@ html {
   color: #121212;
 }
 
-html, body,
+html,
+body,
 .mat-tab,
 .mat-tab-group,
 .mat-tab-label,
@@ -93,7 +94,12 @@ html, body,
   border-color: #121212;
 }
 
-.mat-radio-button.mat-primary .mat-radio-inner-circle, .mat-radio-button.mat-primary .mat-radio-ripple .mat-ripple-element:not(.mat-radio-persistent-ripple), .mat-radio-button.mat-primary.mat-radio-checked .mat-radio-persistent-ripple, .mat-radio-button.mat-primary:active .mat-radio-persistent-ripple {
+.mat-radio-button.mat-primary .mat-radio-inner-circle,
+.mat-radio-button.mat-primary
+  .mat-radio-ripple
+  .mat-ripple-element:not(.mat-radio-persistent-ripple),
+.mat-radio-button.mat-primary.mat-radio-checked .mat-radio-persistent-ripple,
+.mat-radio-button.mat-primary:active .mat-radio-persistent-ripple {
   background-color: #121212;
 }
 
@@ -119,18 +125,17 @@ h4 {
   background-color: #121212;
 }
 
-.mat-tab-label, .mat-tab-link {
+.mat-tab-label,
+.mat-tab-link {
   font-size: 15px;
 }
 
 .success-color {
   color: #00612c;
-  font-weight: 500;
 }
 
 .error-color {
   color: #ff0033;
-  font-weight: 500;
 }
 
 .boiler-label {
@@ -145,7 +150,9 @@ h4 {
   color: #121212;
 }
 
-.mat-button.mat-primary, .mat-icon-button.mat-primary, .mat-stroked-button.mat-primary {
+.mat-button.mat-primary,
+.mat-icon-button.mat-primary,
+.mat-stroked-button.mat-primary {
   color: #121212;
 }
 
@@ -154,7 +161,7 @@ h4 {
 }
 
 .mat-header-cell {
-  color: #121212BB;
+  color: #121212bb;
   font-size: 1rem;
   font-weight: 500;
 }
@@ -171,13 +178,13 @@ h4 {
 }
 
 label > mat-label {
-  color: #121212CC;
+  color: #121212cc;
   font-size: 0.9rem;
 }
 
 .mat-paginator-range-label {
   margin: 0 10px !important;
-  color: #121212CC;
+  color: #121212cc;
   font-size: 0.82rem;
 }
 

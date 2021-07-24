@@ -6,12 +6,18 @@ h1 {
   padding: 10px 0 5px 0;
 }
 
-.table-container {
-  width: 100%;
-}
-
 .covid-container {
   margin: 10px;
+}
+
+.table-container {
+  width: calc(100vw - 20px);
+  max-width: 100%;
+  overflow: auto;
+}
+
+table {
+  width: 100%;
 }
 
 th.mat-header-cell:first-of-type,
@@ -25,14 +31,12 @@ td.mat-footer-cell:first-of-type {
   th.mat-header-cell:first-of-type,
   td.mat-cell:first-of-type,
   td.mat-footer-cell:first-of-type {
-    width: 65%;
+    width: 35%;
   }
   h1 {
     font-size: 1rem;
   }
-}
-
-.mat-cell,
-.mat-footer-cell {
-  color: inherit;
+  table {
+    width: 200%;
+  }
 }
