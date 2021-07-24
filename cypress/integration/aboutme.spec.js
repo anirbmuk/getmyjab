@@ -12,7 +12,7 @@ describe('Test about me', function () {
     cy.get('h1').should('have.text', 'The App: GetMyJab');
   });
 
-  it('should have 4 external links', function () {
+  it('should have correct external links', function () {
     cy.get('.about-block > p').then(function (elem) {
       cy.get(elem).should('have.length', 4);
       cy.get(elem)
@@ -32,11 +32,18 @@ describe('Test about me', function () {
         .children('a')
         .should('have.attr', 'href', 'https://theangularpath.anirbanblogs.com');
     });
+    cy.get('.stack-block > p > a').then(function (elem) {
+      cy.get(elem).should('have.length', 2);
+      cy.get(elem).eq(0).should('have.attr', 'href', 'https://angular.io');
+      cy.get(elem)
+        .eq(1)
+        .should('have.attr', 'href', 'https://cloud.google.com');
+    });
   });
 
-  it('clicking on home-page link should correctly redirect to home page', function () {
+  it('clicking on home link should correctly redirect to home page', function () {
     cy.visit('/aboutme');
-    cy.get('[data-cy=slotsUrl]').should('have.text', 'home page');
+    cy.get('[data-cy=slotsUrl]').should('have.text', 'home');
     cy.get('[data-cy=slotsUrl]').click();
     cy.url().should('equal', data.appUrl);
   });

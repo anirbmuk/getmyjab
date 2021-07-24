@@ -1,9 +1,11 @@
 <div class="default-margin">
   <h1>The App: GetMyJab</h1>
+  <hr />
   <p class="intro-block">
     {{ text }}
   </p>
   <h2>The Developer: Anirban Mukherjee</h2>
+  <hr />
   <div class="about-block">
     <p>
       <a
@@ -55,26 +57,40 @@
     </p>
   </div>
   <h2>The Tech Stack</h2>
+  <hr />
   <div class="stack-block">
     <p>
-      <img height="50" src="/assets/images/angular.svg" alt="angular logo" />
-      <img
-        height="50"
-        src="/assets/images/gcp.svg"
-        alt="google cloud platform logo"
-      />
+      <a
+        target="_blank"
+        href="https://angular.io"
+        aria-label="Angular"
+        (click)="clickExternalLink('angular')"
+        ><img height="50" src="/assets/images/angular.svg" alt="angular logo"
+      /></a>
+      <a
+        target="_blank"
+        href="https://cloud.google.com"
+        aria-label="GCP"
+        (click)="clickExternalLink('gcp')"
+        ><img
+          height="50"
+          src="/assets/images/gcp.svg"
+          alt="google cloud platform logo"
+      /></a>
     </p>
   </div>
   <h2>That's all folks!</h2>
+  <hr />
   <div class="redirect-block">
     <p>
-      Do visit the <a data-cy="slotsUrl" routerLink="/">home page</a> page for
-      more information on current vaccination slots, or the
+      Do visit the <a data-cy="slotsUrl" routerLink="/">home</a> page for more
+      information on current vaccination slots, or the
       <a data-cy="covidUrl" routerLink="/covid">status</a> page for current
       COVID-19 status in India. Thank you!
     </p>
   </div>
   <h2>*** Disclaimer ***</h2>
+  <hr />
   <div class="disclaimer-block">
     <p>
       While a lot of thought and research has gone into building this interface,
