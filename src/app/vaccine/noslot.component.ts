@@ -10,7 +10,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
         padding-bottom: 10px;
         margin-left: 5px;
         font-size: 14px;
-        font-weight: 600;
+        font-weight: 500;
       }
     `
   ],

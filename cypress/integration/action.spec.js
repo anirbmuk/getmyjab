@@ -3,22 +3,22 @@
 describe('Test user actions', function () {
   it('should have Karnataka as selected tab', function () {
     cy.visit('');
-    cy.get('h1').should('have.text', 'Karnataka');
+    cy.get('h1').should('have.text', 'Karnataka Slots');
   });
 
   it('should show West Bengal as h1 after selecting second tab', function () {
     cy.get('#mat-tab-label-0-1').click();
-    cy.get('h1').should('have.text', 'West Bengal');
+    cy.get('h1').should('have.text', 'West Bengal Slots');
   });
 
   it('should show Maharashtra as h1 after selecting third tab', function () {
     cy.get('#mat-tab-label-0-2').click();
-    cy.get('h1').should('have.text', 'Maharashtra');
+    cy.get('h1').should('have.text', 'Maharashtra Slots');
   });
 
   it('should show Karnataka as h1 after selecting first tab', function () {
     cy.get('#mat-tab-label-0-0').click();
-    cy.get('h1').should('have.text', 'Karnataka');
+    cy.get('h1').should('have.text', 'Karnataka Slots');
   });
 
   it('should toggle the mat-button-group', function () {

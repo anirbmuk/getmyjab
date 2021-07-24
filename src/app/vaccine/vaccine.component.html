@@ -30,7 +30,7 @@
   <mat-tab label="Karnataka">
     <div class="columns">
       <div class="default-margin sm-margin">
-        <h1>Karnataka</h1>
+        <h1>Karnataka Slots</h1>
       </div>
       <div class="right-align">
         <button type="button" mat-icon-button (click)="refresh('Karnataka')">
@@ -79,47 +79,11 @@
         <app-noslot></app-noslot>
       </ng-template>
     </ng-container>
-    <ng-container *ngIf="chikkaballapurWeek2$ | async as data">
-      <h2 class="sm-margin">Chikkaballapur</h2>
-      <div class="sm-margin week-item">({{ week2$ | async }})</div>
-      <app-session
-        [data]="data"
-        [field]="dose$ | async"
-        *ngIf="data.length > 0; else nodata"
-      ></app-session>
-      <ng-template #nodata>
-        <app-noslot></app-noslot>
-      </ng-template>
-    </ng-container>
-    <ng-container *ngIf="blrRuralWeek1$ | async as data">
-      <h2 class="sm-margin">Bangalore Rural</h2>
-      <div class="sm-margin week-item">({{ week1$ | async }})</div>
-      <app-session
-        [data]="data"
-        [field]="dose$ | async"
-        *ngIf="data.length > 0; else nodata"
-      ></app-session>
-      <ng-template #nodata>
-        <app-noslot></app-noslot>
-      </ng-template>
-    </ng-container>
-    <ng-container *ngIf="blrUrbanWeek1$ | async as data">
-      <h2 class="sm-margin">Bangalore Urban</h2>
-      <div class="sm-margin week-item">({{ week1$ | async }})</div>
-      <app-session
-        [data]="data"
-        [field]="dose$ | async"
-        *ngIf="data.length > 0; else nodata"
-      ></app-session>
-      <ng-template #nodata>
-        <app-noslot></app-noslot>
-      </ng-template>
-    </ng-container>
   </mat-tab>
   <mat-tab label="Bengal">
     <div class="columns">
       <div class="default-margin sm-margin">
-        <h1>West Bengal</h1>
+        <h1>West Bengal Slots</h1>
       </div>
       <div class="right-align">
         <button type="button" mat-icon-button (click)="refresh('Bengal')">
@@ -184,7 +148,7 @@
   <mat-tab label="Maharashtra">
     <div class="columns">
       <div class="default-margin sm-margin">
-        <h1>Maharashtra</h1>
+        <h1>Maharashtra Slots</h1>
       </div>
       <div class="right-align">
         <button type="button" mat-icon-button (click)="refresh('Maharashtra')">
@@ -199,6 +163,18 @@
     <mat-divider></mat-divider>
     <ng-container *ngIf="mumbaiWeek1$ | async as data">
       <h2 class="sm-margin">Mumbai</h2>
+      <div class="sm-margin week-item">({{ week1$ | async }})</div>
+      <app-session
+        [data]="data"
+        [field]="dose$ | async"
+        *ngIf="data.length > 0; else nodata"
+      ></app-session>
+      <ng-template #nodata>
+        <app-noslot></app-noslot>
+      </ng-template>
+    </ng-container>
+    <ng-container *ngIf="kolhapurWeek1$ | async as data">
+      <h2 class="sm-margin">Kolhapur</h2>
       <div class="sm-margin week-item">({{ week1$ | async }})</div>
       <app-session
         [data]="data"

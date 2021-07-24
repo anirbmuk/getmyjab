@@ -14,7 +14,11 @@ import { map } from 'rxjs/operators';
 
 import { IData, DoseType, FeeType } from './../data/data.interface';
 
-import { supportedLocations, DataService } from './../data/data.service';
+import {
+  supportedLocations,
+  DataService,
+  TabState
+} from './../data/data.service';
 import { ITag, Robots, SeoService } from './../seo/seo.service';
 import { ModalService } from './../modal/modal.service';
 import {
@@ -79,17 +83,6 @@ export class VaccineComponent implements OnInit {
   readonly chikkaballapurWeek1$: Observable<IData[]> = this.data
     .getChikkaballapurDataForWeek1()
     .pipe(untilDestroyed(this));
-  readonly chikkaballapurWeek2$: Observable<IData[]> = this.data
-    .getChikkaballapurDataForWeek2()
-    .pipe(untilDestroyed(this));
-
-  readonly blrUrbanWeek1$: Observable<IData[]> = this.data
-    .getBangaloreUrbanDataForWeek1()
-    .pipe(untilDestroyed(this));
-
-  readonly blrRuralWeek1$: Observable<IData[]> = this.data
-    .getBangaloreRuralDataForWeek1()
-    .pipe(untilDestroyed(this));
 
   readonly kolkataWeek1$: Observable<IData[]> = this.data
     .getKolkataDataForWeek1()
@@ -109,6 +102,10 @@ export class VaccineComponent implements OnInit {
     .getMumbaiDataForWeek1()
     .pipe(untilDestroyed(this));
 
+  readonly kolhapurWeek1$: Observable<IData[]> = this.data
+    .getKolhapurDataForWeek1()
+    .pipe(untilDestroyed(this));
+
   ngOnInit(): void {
     this.seo.setMetaTags({
       url: '/',
@@ -124,11 +121,13 @@ export class VaccineComponent implements OnInit {
     );
     this.seo.setCanonical('/');
 
-    let state: any;
-    const rawState = this.data.getParameter('tabState');
+    let state: TabState;
+    const rawState = this.data.getParameter('tabState') as TabState;
     if (typeof rawState === 'string') {
       try {
-        state = JSON.parse(this.data.getParameter('tabState'));
+        state = JSON.parse(
+          this.data.getParameter('tabState') as string
+        ) as TabState;
         if (!supportedLocations.includes(state?.label)) {
           throw new Error('Unsupported location. Using default.');
         }
@@ -141,8 +140,8 @@ export class VaccineComponent implements OnInit {
     }
     this.selectedIndex = state?.index;
     this.selectedLabel = state?.label;
-    this.selectedAge = this.data.getParameter('minimumAge');
-    this.selectedDose = this.data.getParameter('dose');
+    this.selectedAge = this.data.getParameter('minimumAge') as number;
+    this.selectedDose = this.data.getParameter('dose') as DoseType;
     this.data.setNext(this.selectedLabel);
     this.tracking.logPageViewEvent({
       city: this.selectedLabel,
@@ -159,14 +158,14 @@ export class VaccineComponent implements OnInit {
 
   get firstDose(): string {
     if (this.selectedDose === 'second' && this.data.isFirstDosePresent()) {
-      return `${this.data.getParameter('firstdate')?.trim()}`;
+      return `${(this.data.getParameter('firstdate') as string)?.trim()}`;
     }
     return null;
   }
 
   get vaccine(): string {
     if (this.selectedDose === 'second' && this.data.isFirstDosePresent()) {
-      return `${this.data.getParameter('vaccine')?.trim()}`;
+      return `${(this.data.getParameter('vaccine') as string)?.trim()}`;
     }
     return null;
   }
@@ -176,6 +175,7 @@ export class VaccineComponent implements OnInit {
   }
 
   onSelectedTabChange(event: MatTabChangeEvent): void {
+    this.viewport.scrollToPosition([0, 0]);
     this.selectedIndex = event?.index;
     this.selectedLabel = event?.tab?.textLabel;
     this.data.saveParameter(
@@ -235,7 +235,7 @@ export class VaccineComponent implements OnInit {
     if (dose === 'second') {
       if (!this.data.isFirstDosePresent()) {
         this.modal
-          .openDateModal(this.data.getParameter('firstdate'))
+          .openDateModal(this.data.getParameter('firstdate') as string)
           .subscribe({
             next: (data: {
               decision: boolean;
@@ -264,7 +264,9 @@ export class VaccineComponent implements OnInit {
       } else {
         this.data.changeBaseDate(
           this.data.addDays(
-            this.data.getDateFromString(this.data.getParameter('firstdate')),
+            this.data.getDateFromString(
+              this.data.getParameter('firstdate') as string
+            ),
             environment.vaccineDoseGap
           )
         );

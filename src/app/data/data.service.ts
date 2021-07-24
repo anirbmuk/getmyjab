@@ -11,6 +11,10 @@ import { ICovid } from '../covid/covid.data';
 
 const timeZone = 'Asia/Kolkata';
 
+export type TabState = {
+  index: number;
+  label: string;
+};
 export type StorageType =
   | 'tabState'
   | 'minimumAge'
@@ -28,7 +32,7 @@ export const supportedLocations: string[] = [
 export class DataService {
   private start = this.getParameter('firstdate')
     ? this.addDays(
-        this.getDateFromString(this.getParameter('firstdate')),
+        this.getDateFromString(this.getParameter('firstdate') as string),
         environment.vaccineDoseGap
       )
     : this.getCurrentDate();
@@ -43,15 +47,19 @@ export class DataService {
   private maharashtraZones = new BehaviorSubject<string>('');
   private refreshTime = new BehaviorSubject<Date>(this.time);
   private minimumAge = new BehaviorSubject<number>(
-    this.getParameter('minimumAge')
+    this.getParameter('minimumAge') as number
   );
-  private vaccine = new BehaviorSubject<string>(this.getParameter('vaccine'));
+  private vaccine = new BehaviorSubject<string>(
+    this.getParameter('vaccine') as string
+  );
   private dose = new BehaviorSubject<DoseType>(
     !!this.getParameter('firstdate') && !!this.getParameter('vaccine')
-      ? this.getParameter('dose')
+      ? (this.getParameter('dose') as DoseType)
       : 'first'
   );
-  private fee = new BehaviorSubject<FeeType>(this.getParameter('fee'));
+  private fee = new BehaviorSubject<FeeType>(
+    this.getParameter('fee') as FeeType
+  );
   private firstdate = new BehaviorSubject<string>(null);
 
   private covidData = new BehaviorSubject<string>('');
@@ -112,36 +120,9 @@ export class DataService {
     );
   }
 
-  public getBangaloreUrbanDataForWeek1(): Observable<IData[]> {
-    return this.karnatakaZones$.pipe(
-      withLatestFrom(this.getWeek1()),
-      exhaustMap(([next, week]) =>
-        !!next ? this.getdata(environment.BANGALORE_URBAN, week) : of([])
-      )
-    );
-  }
-
-  public getBangaloreRuralDataForWeek1(): Observable<IData[]> {
-    return this.karnatakaZones$.pipe(
-      withLatestFrom(this.getWeek1()),
-      exhaustMap(([next, week]) =>
-        !!next ? this.getdata(environment.BANGALORE_RURAL, week) : of([])
-      )
-    );
-  }
-
   public getChikkaballapurDataForWeek1(): Observable<IData[]> {
     return this.karnatakaZones$.pipe(
       withLatestFrom(this.getWeek1()),
-      exhaustMap(([next, week]) =>
-        !!next ? this.getdata(environment.CHIKKABALLAPUR, week) : of([])
-      )
-    );
-  }
-
-  public getChikkaballapurDataForWeek2(): Observable<IData[]> {
-    return this.karnatakaZones$.pipe(
-      withLatestFrom(this.getWeek2()),
       exhaustMap(([next, week]) =>
         !!next ? this.getdata(environment.CHIKKABALLAPUR, week) : of([])
       )
@@ -189,6 +170,15 @@ export class DataService {
       withLatestFrom(this.getWeek1()),
       exhaustMap(([next, week]) =>
         !!next ? this.getdata(environment.MUMBAI, week) : of([])
+      )
+    );
+  }
+
+  public getKolhapurDataForWeek1(): Observable<IData[]> {
+    return this.maharashtraZones$.pipe(
+      withLatestFrom(this.getWeek1()),
+      exhaustMap(([next, week]) =>
+        !!next ? this.getdata(environment.KOLHAPUR, week) : of([])
       )
     );
   }
@@ -249,7 +239,9 @@ export class DataService {
     }
   }
 
-  getParameter(param: StorageType): any {
+  getParameter(
+    param: StorageType
+  ): string | number | FeeType | DoseType | TabState {
     if (isPlatformBrowser(this.platformId)) {
       if (!!window?.localStorage) {
         const value: any = window.localStorage.getItem(param);
@@ -262,12 +254,12 @@ export class DataService {
     return environment[param];
   }
 
-  setParameter<T>(param: StorageType, value: T): void {
+  setParameter<T extends string | number>(param: StorageType, value: T): void {
     this.saveParameter(param, value as unknown as string);
     (this[param] as BehaviorSubject<T>).next(value);
   }
 
-  getDefaultTabState(): { index: number; label: string } {
+  getDefaultTabState(): TabState {
     return { ...environment.tabState };
   }
 
