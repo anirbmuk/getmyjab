@@ -81,56 +81,7 @@ describe('Test vaccination sessions', function () {
         body: data.withFeesBody
       }).as('dataWithFees');
       cy.visit('/');
-      cy.log('Testing with fee_type Free');
-      cy.getNthSession(0)
-        .find('.result-header')
-        .first()
-        .should('contain.text', 'SESSION WITHOUT FEES');
-      cy.getNthSession(0)
-        .find('[data-cy=pincode]')
-        .should('contain.text', '123456');
-      cy.getNthSession(0)
-        .find('[data-cy=feetype]')
-        .should('contain.text', 'Free');
-      cy.getNthSession(0).find('[data-cy=dose]').should('contain.text', '1');
-      cy.getNthSession(0)
-        .find('[data-cy=date]')
-        .eq(0)
-        .should('contain.text', '07-06-2021');
-      cy.getNthSession(0).find('[data-cy=fee]').should('not.exist');
-
-      cy.log('Testing with fee_type Paid');
-      cy.get('#mat-button-toggle-5-button').click();
-      cy.getNthSession(0)
-        .find('.result-header')
-        .first()
-        .should('contain.text', 'SESSION WITH FEES');
-      cy.getNthSession(0)
-        .find('[data-cy=pincode]')
-        .should('contain.text', '654321');
-      cy.getNthSession(0)
-        .find('[data-cy=feetype]')
-        .should('contain.text', 'Paid');
-      cy.getNthSession(0).find('[data-cy=dose]').should('contain.text', '1');
-      cy.getNthSession(0)
-        .find('[data-cy=date]')
-        .eq(0)
-        .should('contain.text', '14-06-2021');
-      cy.getNthSession(0)
-        .find('[data-cy=date]')
-        .eq(1)
-        .should('contain.text', '14-06-2021');
-      cy.getNthSession(0)
-        .find('[data-cy=fee]')
-        .eq(0)
-        .should('contain.text', '850');
-      cy.getNthSession(0)
-        .find('[data-cy=fee]')
-        .eq(1)
-        .should('contain.text', '1,050');
-
       cy.log('Testing with fee_type All');
-      cy.get('#mat-button-toggle-6-button').click();
       cy.getNthSession(0)
         .find('.result-header')
         .first()
@@ -174,6 +125,55 @@ describe('Test vaccination sessions', function () {
         .find('[data-cy=fee]')
         .eq(1)
         .should('contain.text', '1,050');
+
+      cy.log('Testing with fee_type Paid');
+      cy.get('#mat-button-toggle-5-button').click();
+      cy.getNthSession(0)
+        .find('.result-header')
+        .first()
+        .should('contain.text', 'SESSION WITH FEES');
+      cy.getNthSession(0)
+        .find('[data-cy=pincode]')
+        .should('contain.text', '654321');
+      cy.getNthSession(0)
+        .find('[data-cy=feetype]')
+        .should('contain.text', 'Paid');
+      cy.getNthSession(0).find('[data-cy=dose]').should('contain.text', '1');
+      cy.getNthSession(0)
+        .find('[data-cy=date]')
+        .eq(0)
+        .should('contain.text', '14-06-2021');
+      cy.getNthSession(0)
+        .find('[data-cy=date]')
+        .eq(1)
+        .should('contain.text', '14-06-2021');
+      cy.getNthSession(0)
+        .find('[data-cy=fee]')
+        .eq(0)
+        .should('contain.text', '850');
+      cy.getNthSession(0)
+        .find('[data-cy=fee]')
+        .eq(1)
+        .should('contain.text', '1,050');
+
+      cy.log('Testing with fee_type Free');
+      cy.get('#mat-button-toggle-6-button').click();
+      cy.getNthSession(0)
+        .find('.result-header')
+        .first()
+        .should('contain.text', 'SESSION WITHOUT FEES');
+      cy.getNthSession(0)
+        .find('[data-cy=pincode]')
+        .should('contain.text', '123456');
+      cy.getNthSession(0)
+        .find('[data-cy=feetype]')
+        .should('contain.text', 'Free');
+      cy.getNthSession(0).find('[data-cy=dose]').should('contain.text', '1');
+      cy.getNthSession(0)
+        .find('[data-cy=date]')
+        .eq(0)
+        .should('contain.text', '07-06-2021');
+      cy.getNthSession(0).find('[data-cy=fee]').should('not.exist');
     });
   });
 });

@@ -38,7 +38,7 @@
     "serve:ssr": "node dist/getmyjab/server/main.js",
     "build:ssr": "ng build --configuration prodlike && ng run getmyjab:server:prodlike",
     "prerender": "ng run getmyjab:prerender",
-    "format": "prettier --config ./.prettierrc --write \"src/app/**/*{.ts,.js,.json,.css,.scss,.html}\" \"cypress/**/*{.js,.json}\"",
+    "format": "prettier --config ./.prettierrc --write \"src/app/**/*{.ts,.js,.json,.css,.scss,.html}\" \"src/styles.css\" \"src/index.html\" \"cypress/**/*{.js,.json}\"",
     "clean": "rimraf .firebase && rimraf dist",
     "deploy:ssr": "npm run build:ssr && gcloud config set project getmyjab && gcloud app deploy --quiet",
     "deploy:static": "ng build --configuration production && firebase deploy",
