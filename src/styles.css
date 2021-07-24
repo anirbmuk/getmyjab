@@ -40,7 +40,7 @@ html, body,
 .mat-header-row,
 .mat-header-cell,
 .mat-tooltip {
-  font-family: 'Noto Sans SC', sans-serif !important;
+  font-family: 'Roboto', sans-serif !important;
   text-rendering: optimizeLegibility;
 }
 
@@ -49,7 +49,7 @@ html, body,
 }
 
 .mat-button-toggle-checked {
-  font-weight: 600 !important;
+  font-weight: 500 !important;
 }
 
 .mat-form-field-appearance-legacy .mat-form-field-underline,
@@ -125,12 +125,12 @@ h4 {
 
 .success-color {
   color: #00612c;
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .error-color {
   color: #ff0033;
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .boiler-label {
@@ -156,7 +156,7 @@ h4 {
 .mat-header-cell {
   color: #121212BB;
   font-size: 1rem;
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .bold-font {
