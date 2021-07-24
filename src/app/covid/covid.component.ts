@@ -1,4 +1,3 @@
-import { Observable } from 'rxjs';
 import {
   ChangeDetectionStrategy,
   Component,
@@ -6,6 +5,7 @@ import {
   ViewChild
 } from '@angular/core';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
+import { Observable } from 'rxjs';
 
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
@@ -32,13 +32,7 @@ export class CovidComponent implements OnInit {
     'recovered',
     'deaths'
   ];
-  readonly pageSize = 10;
-  readonly pageSizeOptions = [
-    this.pageSize * 1,
-    this.pageSize * 2,
-    this.pageSize * 3,
-    this.pageSize * 4
-  ];
+  readonly pageSize = 8;
 
   covidData: MatTableDataSource<ICovid>;
 

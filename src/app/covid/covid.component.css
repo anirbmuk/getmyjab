@@ -31,3 +31,8 @@ td.mat-footer-cell:first-of-type {
     font-size: 1rem;
   }
 }
+
+.mat-cell,
+.mat-footer-cell {
+  color: inherit;
+}

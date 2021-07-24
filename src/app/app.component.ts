@@ -31,7 +31,7 @@ export class AppComponent implements OnInit {
       title:
         'GetMyJab - COVID-19 vaccination slots in Karnataka, Bengal and Maharashtra',
       description:
-        'COVID-19 vaccination slots in Karnataka (BBMP, Bangalore, Urban, Rural, Chikkaballapur), Bengal and Maharashtra',
+        'COVID-19 vaccination slots in Karnataka (BBMP, Chikkaballapur), Bengal and Maharashtra',
       image: '/assets/seo.png'
     } as ITag);
     if (isPlatformBrowser(this.platformId) && environment.production) {

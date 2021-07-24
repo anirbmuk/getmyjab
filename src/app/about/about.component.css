@@ -1,16 +1,18 @@
 h1 {
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   font-weight: 700;
   color: rgba(18, 18, 18, 0.85);
-  border-bottom: 1px solid rgba(18, 18, 18, 0.75);
 }
 
 h2 {
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   font-weight: 700;
   color: rgba(18, 18, 18, 0.85);
-  border-bottom: 1px solid rgba(18, 18, 18, 0.75);
   padding-top: 10px;
+}
+
+hr {
+  margin: -3px 0 10px 0;
 }
 
 .intro-block,
@@ -25,6 +27,14 @@ h2 {
 .stack-block {
   margin-top: 20px;
   margin-bottom: 10px;
+}
+
+.stack-block > p > a {
+  border: none;
+}
+
+.stack-block > p > a ~ a {
+  margin: 0 10px;
 }
 
 .about-block > p {

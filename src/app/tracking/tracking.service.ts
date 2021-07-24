@@ -21,7 +21,9 @@ export type ExternalLink =
   | 'linkedin'
   | 'github'
   | 'cowin'
-  | 'blogger';
+  | 'blogger'
+  | 'angular'
+  | 'gcp';
 
 export interface FirebaseConfig {
   apiKey: string;
