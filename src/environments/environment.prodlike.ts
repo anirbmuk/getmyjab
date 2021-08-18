@@ -2,7 +2,7 @@ export const environment = {
   production: true,
   calendarByDistrictRoot: 'https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByDistrict',
   calendarByPinRoot: 'https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByPin',
-  covid19Root: 'https://api.covid19india.org/data.json',
+  covid19Root: 'https://data.covid19india.org/data.json',
   minimumAge: 18,
   BBMP: 294,
   BANGALORE_URBAN: 265,
