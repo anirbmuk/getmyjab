@@ -37,7 +37,8 @@ const rootRoutes: Routes = [
     FormsModule,
     RouterModule.forRoot(rootRoutes, {
       initialNavigation: 'enabled',
-      preloadingStrategy: PreloadAllModules
+      preloadingStrategy: PreloadAllModules,
+      scrollPositionRestoration: 'top'
     }),
     MatToolbarModule,
     VaccineModule,
