@@ -22,7 +22,7 @@ import { ICovid } from './covid.data';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CovidComponent implements OnInit {
-  @ViewChild(MatPaginator) paginator?: MatPaginator;
+  @ViewChild(MatPaginator, { static: true }) paginator?: MatPaginator;
 
   readonly dataSource$: Observable<ICovid[]> = this.data.getCovidData();
   readonly displayedColumns: string[] = [
