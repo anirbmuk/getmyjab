@@ -1,6 +1,6 @@
 {
   "name": "getmyjab",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Angular 12 application to get live covid-19 vaccination slots",
   "homepage": "https://getmyjab.firebaseapp.com",
   "keywords": [
