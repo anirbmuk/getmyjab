@@ -26,7 +26,7 @@ export class AboutComponent implements OnInit {
   constructor(
     private readonly seo: SeoService,
     private readonly tracking: TrackingService,
-    @Inject(PLATFORM_ID) private platformId
+    @Inject(PLATFORM_ID) private readonly platformId
   ) {}
 
   ngOnInit(): void {

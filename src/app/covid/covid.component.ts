@@ -1,7 +1,10 @@
+import { isPlatformBrowser } from '@angular/common';
 import {
   ChangeDetectionStrategy,
   Component,
+  Inject,
   OnInit,
+  PLATFORM_ID,
   ViewChild
 } from '@angular/core';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
@@ -12,6 +15,8 @@ import { MatPaginator } from '@angular/material/paginator';
 
 import { DataService } from './../data/data.service';
 import { ITag, Robots, SeoService } from '../seo/seo.service';
+import { PageViewParams, TrackingService } from '../tracking/tracking.service';
+
 import { ICovid } from './covid.data';
 
 @UntilDestroy()
@@ -38,7 +43,9 @@ export class CovidComponent implements OnInit {
 
   constructor(
     private readonly data: DataService,
-    private readonly seo: SeoService
+    private readonly seo: SeoService,
+    private readonly tracking: TrackingService,
+    @Inject(PLATFORM_ID) private readonly platformId
   ) {}
 
   ngOnInit(): void {
@@ -59,6 +66,15 @@ export class CovidComponent implements OnInit {
     } as ITag);
     this.seo.setTitle('COVID-19 current status in India');
     this.seo.setCanonical('/covid');
+
+    this.tracking.logPageViewEvent({
+      screen: '/covid',
+      page_location: isPlatformBrowser(this.platformId)
+        ? window?.location.href
+        : null,
+      page_title: this.seo.pageTitle,
+      source: this.tracking.source
+    } as PageViewParams);
   }
 
   applyFilter(event: Event) {
