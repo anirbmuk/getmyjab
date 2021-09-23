@@ -92,5 +92,5 @@
   },
   "appUrl": "http://localhost:4200/",
   "baseUrl": "https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByDistrict?district_id=294&date=",
-  "covid19Url": "https://api.covid19india.org/data.json"
+  "covid19Url": "https://data.covid19india.org/data.json"
 }
