@@ -9,7 +9,7 @@ Angular 12 web application to get live covid-19 vaccination slots
 :heavy_check_mark: Google analytics   
 
 ## Static Host (PWA)   
-https://getmyjab.firebaseapp.com   
+~~https://getmyjab.firebaseapp.com~~ (decommissioned)      
 
 ## Angular Universal (SSR, SEO, PWA)   
 ~~https://getmyjab.el.r.appspot.com~~ (decommissioned)   
